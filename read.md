@@ -2,7 +2,7 @@ npm install -- To install all the dependencies
 
 node server.js to start the server
 
-To use in webpack server 
+To use in webpack server add the following to webpack.config.js file.
 
 
     devServer: {
@@ -10,7 +10,7 @@ To use in webpack server
         stats: 'errors-only',
         proxy: {
             '/api': {
-                target: 'http://localhost:20404/',
+                target: 'http://localhost:20403/',
                 secure: true
             }
         }
