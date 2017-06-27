@@ -1,0 +1,30 @@
+{
+  "CAS": {
+    "RESPONSE": {
+      "DATA": {
+        "@suppressautocorrelation": "1",
+        "@suppressautofold": "1",
+        "@suppressautofriendly": "1",
+        "DESCRIPTOR": {
+          "@AddCond": "(BpaSales.Division = N'01' AND BpaSales.DistribChannel = N'01' AND BpaSales.SalesOrg = N'0001')",
+          "@AliasName": "BpaCompanyView",
+          "@OriginalName": "BpaCompanyView",
+          "@Sort": "BpaMain.Name asc, BpaAddress.City asc",
+          "@TotalRowCount": "144"
+        }
+      },
+      "FUNCTION": {
+        "@GUID": "0b46ab6a-03c5-41c9-ac7c-f6d46fa8df64",
+        "@Name": "GetTotalRowCount"
+      },
+      "STATUS": {
+        "@BusinessModified": "",
+        "@ErrorCode": "0",
+        "@ErrorContext": "",
+        "@ErrorMessage": "Success",
+        "@Performance": ".0511375",
+        "@Roundtrip": "0"
+      }
+    }
+  }
+}
