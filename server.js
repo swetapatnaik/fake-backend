@@ -14,10 +14,34 @@ app.get('/ping', function(req, res) {
     res.send('success\n\n' + new Date());
 });
 
+app.post('/sitecore/api/enrollment/payment/attempt', function(req, res) {
+    console.log('POST:' + '/sitecore/api/enrollment/payment/attempt');
+    if(req.body.cardNumber.indexOf("1234") !== -1){
+        const payment = JSON.parse(fs.readFileSync('responses/paymentFailure.json'));
+        res.send(payment);
+    }else{
+        const payment = JSON.parse(fs.readFileSync('responses/paymentSuccess.json'));
+        res.send(payment);
+    }
+});
+
+app.post('/sitecore/api/enrollment/information/update', function(req, res) {
+    console.log('POST:' + '/sitecore/api/enrollment/information/update');
+    const information = JSON.parse(fs.readFileSync('responses/informationSuccess.json'));
+    res.send(information);
+});
+
 app.post('/sitecore/api/enrollment/account/register', function(req, res) {
     console.log('POST:' + '/sitecore/api/enrollment/account/register');
-    const register = JSON.parse(fs.readFileSync('responses/register.json'));
-    res.send(register);
+    console.dir(req.body);
+    if(req.body.email === "exists@gmail.com"){
+        const register = JSON.parse(fs.readFileSync('responses/registerFailure.json'));
+        res.send(register);
+    }else{
+        const register = JSON.parse(fs.readFileSync('responses/registerSuccess.json'));
+        res.send(register);
+    }
+    
 });
 
 app.get('/sitecore/api/enrollment/basket/get', function(req, res) {
